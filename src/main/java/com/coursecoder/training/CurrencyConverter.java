@@ -1,4 +1,4 @@
-package com.splunk.training;
+package com.coursecoder.training;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
@@ -52,8 +52,7 @@ public class CurrencyConverter {
         this.exchangeValues.put(key, value);
     }
 
-
-    public static void main( String[] args ){
+    public static void main(String[] args) {
 
         ArrayList<CurrencyConverter> currencies = CurrencyConverter.init();
         Map<String, Serializable> currenciesMap = new HashMap<String, Serializable>();
@@ -76,8 +75,6 @@ public class CurrencyConverter {
             Double amount = Double.parseDouble(amountString);
             DecimalFormat format = new DecimalFormat("#0.00");
 
-
-
             price = convert(nameCurrency1, nameCurrency2, currencies, amount);
 
             // Format numbers to avoid "E7" problem
@@ -91,9 +88,7 @@ public class CurrencyConverter {
             return new ModelAndView(mappedCurrencies, "currencyConversion");
         }, engine);
 
-
         currenciesMap.put("Title", "Currency Converter");
-
 
         currenciesMap.put("currencies", currencies);
         Spark.get("/currency-converter", (req, res) -> new ModelAndView(currenciesMap, "template"), engine);
@@ -101,7 +96,8 @@ public class CurrencyConverter {
     }
 
     // Find the short name and the exchange value of the second currency
-    public static Double convert(String currency1, String currency2, ArrayList<CurrencyConverter> currencies, Double amount) {
+    public static Double convert(String currency1, String currency2, ArrayList<CurrencyConverter> currencies,
+            Double amount) {
         String shortNameCurrency2 = null;
         Double exchangeValue;
         Double price = 0.0;
@@ -187,14 +183,14 @@ public class CurrencyConverter {
     public static ArrayList<CurrencyConverter> init() {
         ArrayList<CurrencyConverter> currencies = new ArrayList<CurrencyConverter>();
 
-        currencies.add( new CurrencyConverter("US Dollar", "USD") );
-        currencies.add( new CurrencyConverter("Euro", "EUR") );
-        currencies.add( new CurrencyConverter("British Pound", "GBP") );
-        currencies.add( new CurrencyConverter("Swiss Franc", "CHF") );
-        currencies.add( new CurrencyConverter("Chinese Yuan Renminbi", "CNY") );
-        currencies.add( new CurrencyConverter("Japanese Yen", "JPY") );
+        currencies.add(new CurrencyConverter("US Dollar", "USD"));
+        currencies.add(new CurrencyConverter("Euro", "EUR"));
+        currencies.add(new CurrencyConverter("British Pound", "GBP"));
+        currencies.add(new CurrencyConverter("Swiss Franc", "CHF"));
+        currencies.add(new CurrencyConverter("Chinese Yuan Renminbi", "CNY"));
+        currencies.add(new CurrencyConverter("Japanese Yen", "JPY"));
 
-        for (int i =0; i < currencies.size(); i++) {
+        for (int i = 0; i < currencies.size(); i++) {
             currencies.get(i).defaultValues();
         }
 
