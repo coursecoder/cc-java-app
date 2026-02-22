@@ -1,0 +1,15 @@
+echo "# Maven build output
+target/
+
+# Environment
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.class" > .gitignore
