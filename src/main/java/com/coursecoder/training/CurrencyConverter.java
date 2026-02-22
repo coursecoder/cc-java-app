@@ -114,6 +114,12 @@ public class CurrencyConverter {
 
         ThymeleafTemplateEngine engine = new ThymeleafTemplateEngine();
 
+        // ── GET / — redirect to main form ──
+        Spark.get("/", (req, res) -> {
+            res.redirect("/currency-converter");
+            return null;
+        });
+
         // ── GET /currency-converter — main form ──
         Spark.get("/currency-converter", (req, res) -> {
             Map<String, Serializable> model = new HashMap<>();

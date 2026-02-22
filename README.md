@@ -1,6 +1,6 @@
 # cc-java-app
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-brightgreen?style=for-the-badge)](https://cc-java-app.onrender.com/currency-converter)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-brightgreen?style=for-the-badge)](https://currencyconverter-java-app.onrender.com)
 
 A Java currency converter web app built with the Spark micro framework. Fetches live exchange rates from the ExchangeRate-API on startup and gracefully falls back to cached rates if the API is unreachable.
 
